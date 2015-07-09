@@ -1,7 +1,9 @@
-# todo-app
+# Movies Web App
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.11.1.
+
+This project is developed with AngularJS framework. The application consumes data from TheMovieDB RestFul API.
 
 ## Build & development
 
