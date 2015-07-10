@@ -1,0 +1,88 @@
+.featured-movie {
+	position: relative;
+	.backdrop {
+		display: block;
+		width: 100%;
+	}
+	.description {
+		position: absolute;
+		bottom: 5px;
+		right: 0;
+		text-align: right;
+		padding: 15px;
+		cursor: pointer;
+		&:before {
+			content: " ";
+			display: block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: $black;
+			opacity: 0.5;
+		}
+		&:hover {
+			.overview {
+				max-height: 400px;
+				padding-bottom: 10px;
+			}
+		}
+		.title, .overview, .label, .btn {
+			position: relative;
+		}
+		.title {
+			margin: 0;
+			padding: 5px 0;
+			font-size: 100%;
+			color: $brand-yellow;
+		}
+		.label {
+			color: $white;
+		}
+		.overview {
+			display: block;
+			font-size: 50%;
+			font-style: italic;
+			line-height: 1.2em;
+			color: $white;
+			max-height: 0;
+			overflow: hidden;
+			@include transition(max-height 0.8s ease-out);
+			&:after {
+				content: "...";
+				display: inline;
+			}
+		}
+	}
+}
+.movie-row {
+	.movie-box {
+		background: #fff;
+		border-bottom: 1px solid #cecece;
+		padding-top: 1em;
+		padding-bottom: 1em;
+		
+		.title {
+			font-size: 95%;
+			margin: 0;
+			@media(min-width: $bootstrapSM) {
+				text-align: center;
+			}
+		}
+		.thumbnail {
+			display: block;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			border: 0px;
+			border-radius: 0px;
+		}
+		.info {
+			p {
+				margin: 0;
+				font-size: 80%;
+			}
+		}
+	}
+}

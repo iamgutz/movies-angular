@@ -8,7 +8,9 @@
  * Factory of the moviesApp
  */
 
- app.factory('mainService', ['$http', '$q', '$rootScope', 'localStorageService', 'apiService', function ($http, $q, $rootScope, localStorageService, apiService){
+ app.factory('mainService', ['$http', '$q', '$rootScope', 'localStorageService', 'apiService', function ($http, $q, $rootScope, localStorageService, apiService, $window){
+ 	
+ 	
 
  	function storeApiConfigData (){
  		var deferred = $q.defer();

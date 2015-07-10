@@ -1,0 +1,46 @@
+body {
+	background-color: #181818;
+}
+h1 {
+	font-size: 100%;
+}
+
+header {
+	position: fixed;
+	width: 100%;
+	background: $black;
+	opacity: 0.9;
+	z-index: 10;
+	nav {
+		.navbar-header {
+			.navbar-brand {
+				height: auto;
+				max-width: 295px;
+				min-width: 150px;
+				img {
+					display: block;
+					width: 100%;
+				}
+			}
+			.icon-bar {
+				background: $brand-yellow;
+			}
+		}
+	}
+}
+#mainContainer {
+	padding-top: 50px;
+}
+.page-header {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	border-bottom: 0px;
+	h1 {
+		color: $white;
+		background: #202020;
+		padding: 11px 19px 12px;
+		span {
+			color: $brand-yellow;
+		}
+	}
+}

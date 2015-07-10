@@ -66,5 +66,8 @@ body {
 }
 
 @import "global/variables";
+@import "global/mixins";
+@import "global/buttons";
+@import "global/global";
 //Components
-@import "components/hero-hotel-search";
+@import "components/movies";
