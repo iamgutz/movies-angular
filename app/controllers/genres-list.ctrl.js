@@ -7,7 +7,7 @@
  * # GenresListCtrl
  * Controller of the moviesApp
  */
-app.controller('GenresListCtrl', ['$scope', '$rootScope', 'localStorageService', 'apiService', 'mainService', function ($scope, $rootScope, localStorageService, apiService, mainService) {
+app.controller('GenresListCtrl', ['$scope', '$rootScope', 'localStorageService', 'apiService', 'utilsService', function ($scope, $rootScope, localStorageService, apiService, utilsService) {
 
 	var storedMovieGenres = localStorageService.get('movieGenres');
 

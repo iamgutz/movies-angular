@@ -1,0 +1,18 @@
+<div class="movie-grid">
+	<div ng-repeat="group in moviesList" class="row movie-row">
+		<div ng-repeat="movie in group" class="movie-box col-xs-12 col-sm-3">
+			<div class="row">
+				<div class="col-xs-4 col-sm-12">
+					<img src="{{images_base_url}}{{posterSize}}{{movie.poster_path}}" class="thumbnail" alt="" />
+				</div>
+				<div class="col-xs-8 col-sm-12">
+					<h2 class="title">{{movie.title}}</h2>
+					<div class="info">
+						<p>Score: {{movie.vote_average}}</p>
+						<p>Released: {{movie.release_date}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

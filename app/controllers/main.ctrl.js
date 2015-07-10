@@ -7,12 +7,12 @@
  * # MainCtrl
  * Controller of the moviesApp
  */
-app.controller('MainCtrl', ['$scope', '$rootScope', 'localStorageService', 'apiService', 'mainService', function ($scope, $rootScope, localStorageService, apiService, mainService, $window) {
+app.controller('MainCtrl', ['$scope', '$rootScope', 'localStorageService', 'apiService', 'utilsService', function ($scope, $rootScope, localStorageService, apiService, utilsService, $window) {
 
 	// API CONFIGURATION
-	mainService.storeApiConfigData();
+	apiService.storeApiConfigData();
 	// GENRES LIST
-	mainService.storeGenresData();
+	apiService.storeGenresData();
 
 	function responsiveFontSize () {
  		var w = angular.element($window);

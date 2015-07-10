@@ -13,7 +13,7 @@ app.config(function ($routeProvider) {
     .when('/', {
       templateUrl: 'views/home.html'
     })
-    .when('/movies/genre/:genre_id', {
+    .when('/movies/genre/:with_genres', {
       templateUrl: 'views/movies.html',
       controller: 'MoviesCtrl'
     })

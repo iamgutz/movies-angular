@@ -8,14 +8,15 @@
  * Factory of the moviesApp
  */
 
- app.factory('apiService', ['$http', '$q', '$rootScope', function ($http, $q, $rootScope){
+ app.factory('apiService', ['$http', '$q', '$rootScope', 'localStorageService', function ($http, $q, $rootScope, localStorageService){
  	var api = {
 	    api_key: 'f77872cef86d6b860440a3b570e542b0',
 	    base_url: 'http://api.themoviedb.org/3',
 	    path: {
 	    	configuration: '/configuration',
 		    genre_movie_list: '/genre/movie/list',
-		    genre_id_movies: '/genre/{id}/movies'
+		    genre_id_movies: '/genre/{id}/movies',
+		    discover_movies: '/discover/movie'
 	    }
 	}
 
@@ -66,6 +67,82 @@
     // ---
     // PUBLIC METHODS.
     // ---
+
+    function storeApiConfigData (){
+ 		var deferred = $q.defer();
+
+ 		var storedData = localStorageService.get('apiConfig');
+
+		if(!storedData) {
+			// No data in Local Storage, request to factory service.
+			apiService.getApiConfig().then(function (data) {
+				localStorageService.add('apiConfig', data);
+				deferred.resolve(data);
+
+				//$rootScope.$broadcast('apiConfigAvailable', data);
+				console.log('api Config stored');
+			});
+		} else {
+			console.log('api Config available in localstorage');
+			//$rootScope.$broadcast('apiConfigAvailable', storedData);
+			deferred.resolve(storedData);
+		}
+
+		return deferred.promise;
+
+ 	}
+
+ 	function storeGenresData (){
+ 		var deferred = $q.defer();
+
+ 		var storedData = localStorageService.get('movieGenres');
+
+		if(!storedData) {
+			// No data in Local Storage, request to factory service.
+			apiService.getGenresList().then(function (data) {
+				localStorageService.add('movieGenres', data.genres);
+				deferred.resolve(data.genres);
+
+				//$rootScope.$broadcast('movieGeneresAvailable', data.genres);
+				console.log('movie genres stored');
+			});
+		} else {
+			console.log('movie genres available in localstorage');
+			//$rootScope.$broadcast('movieGeneresAvailable', storedData);
+			deferred.resolve(storedData);
+		}
+
+		return deferred.promise;
+
+ 	}
+
+    /**
+	 * @function getMoviesList
+	 * @type {public}
+	 * @description
+	 * Requests list of movies by different data types like 
+	 * average rating, number of votes, genres and certifications.
+	 * @param {obj} params
+	 * @param {obj} params.genre_id
+	 * @return {function} [Returns a promise]
+	 */
+    function getMoviesList (params){
+    	var requestParams = params;
+    	requestParams.page = '1'; // change page number to get next results
+ 		requestParams.api_key = api.api_key;
+ 		console.log('requestParams', requestParams);
+
+    	var request = $http({
+			method: 'get',
+			url: api.base_url + api.path.discover_movies,
+			params: requestParams
+		});
+
+		var promise = request.then(handleSuccess, handleError);
+
+		return promise;
+    }
+
 
     /**
 	 * @function getGenreMoviesList
@@ -135,10 +212,32 @@
 		return promise;
 	}
 
+	function getGenreData (id){
+ 		var deferred = $q.defer();
+ 		var genre_id = parseInt(id);
+
+ 		storeGenresData().then(function (genres){
+ 			for(var i = 0; i < genres.length; i++) {
+
+ 				if(genres[i].id === genre_id) {
+ 					deferred.resolve(genres[i]);
+ 					return;
+ 				}
+
+ 			}
+ 		});
+ 		
+ 		return deferred.promise;
+ 	}
+
 	// Return public
 	return {
 		getGenresList: getGenresList,
+		getMoviesList: getMoviesList,
 		getGenreMoviesList: getGenreMoviesList,
-		getApiConfig: getApiConfig
+		getApiConfig: getApiConfig,
+		getGenreData: getGenreData,
+		storeApiConfigData: storeApiConfigData,
+		storeGenresData: storeGenresData
 	}
  }]);
