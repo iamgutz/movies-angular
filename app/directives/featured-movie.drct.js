@@ -50,6 +50,6 @@ app.directive('featuredMovie', function(){
 	      	genreId: '@genreId'
 	    },
         templateUrl: 'directives/featured-movie.html',
-        controller: directiveCtrl
+        controller: ['$scope', '$routeParams', 'apiService', directiveCtrl]
     };
 });

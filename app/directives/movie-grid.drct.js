@@ -66,6 +66,6 @@ app.directive('movieGrid', function(){
             showInfo: '@'
 	    },
         templateUrl: 'directives/movie-grid.html',
-        controller: directiveCtrl
+        controller: ['$scope', '$routeParams', 'apiService', 'utilsService', directiveCtrl]
     };
 });
