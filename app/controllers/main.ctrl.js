@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the moviesApp
  */
-app.controller('MainCtrl', ['$scope', '$rootScope', 'localStorageService', 'apiService', 'utilsService', 'utilsService', function ($scope, $rootScope, localStorageService, apiService, utilsService, $window) {
+app.controller('MainCtrl', ['$scope', '$rootScope', 'localStorageService', 'apiService', 'utilsService', '$window', function ($scope, $rootScope, localStorageService, apiService, utilsService, $window) {
 
 	// API CONFIGURATION
 	apiService.storeApiConfigData();
