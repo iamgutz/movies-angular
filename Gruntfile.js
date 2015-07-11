@@ -345,6 +345,9 @@ module.exports = function (grunt) {
     // ng-annotate tries to make the code safe for minification automatically
     // by using the Angular long form for dependency injection.
     ngAnnotate: {
+      options: {
+        add: true
+      },
       dist: {
         files: [{
           expand: true,
