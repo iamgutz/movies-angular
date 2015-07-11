@@ -19,6 +19,8 @@ app.directive('movieGrid', function(){
 			params = $routeParams;
 		}
 
+        console.log($scope.mikeInfo);
+
 		/**
          * Get Api Configuration
          */
@@ -30,6 +32,7 @@ app.directive('movieGrid', function(){
          * Get movie genre
          */
         apiService.getGenreData(params.with_genres).then(function (genre){
+
             $scope.genre_name = genre.name;
         });
 
@@ -46,6 +49,7 @@ app.directive('movieGrid', function(){
 			});
 
 			$scope.moviesList = orderedResults;
+            console.log(orderedResults);
         });
 	}
 
@@ -59,6 +63,7 @@ app.directive('movieGrid', function(){
 	      	groupItems: '@groupItems',
 	      	genreId: '@genreId',
 	      	sortBy: '@',
+            showInfo: '@'
 	    },
         templateUrl: 'directives/movie-grid.html',
         controller: directiveCtrl
