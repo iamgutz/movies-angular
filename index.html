@@ -1,9 +1,112 @@
-<!doctype html> <html class="no-js"> <head> <meta charset="utf-8"> <title></title> <meta name="description" content=""> <meta name="viewport" content="width=device-width"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.css"> <link rel="stylesheet" href="styles/main.css">  <body ng-app="moviesApp" ng-controller="MainCtrl" style="font-size:{{fontSize}}" map-font-size> <!--[if lt IE 7]>
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="moviesApp" ng-controller="MainCtrl" style="font-size:{{fontSize}}" map-font-size>
+    <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]--> <!-- Add your site or application content here --> <header class="container-fluid"> <nav class="row" role="navigation"> <div class="navbar-header col-sm-3 col-md-3 col-lg-3"> <div class="row"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand col-xs-4 col-sm-12" href="#/"><img src="assets/images/logo.cedadfb3.png" alt="movies online"></a> </div> </div> <div class="collapse navbar-collapse" id="js-navbar-collapse"> <genres-menu class="nav navbar-nav hidden-sm hidden-md hidden-lg"></genres-menu> </div> </nav> </header> <div id="mainContainer" ng-view=""></div> <div class="footer"> <div class="container"> <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p> </div> </div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>!function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+    <![endif]-->
+    
+    <!-- Add your site or application content here -->
+    <header class="container-fluid">
+      <nav class="row" role="navigation">
+        <div class="navbar-header col-sm-3 col-md-3 col-lg-3">
+
+            <div class="row">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand col-xs-4 col-sm-12" href="#/"><img src="assets/images/logo.png" alt="movies online"/></a>
+            </div>
+
+        </div>
+        <div class="collapse navbar-collapse" id="js-navbar-collapse">
+          <genres-menu class="nav navbar-nav hidden-sm hidden-md hidden-lg"></genres-menu>
+        </div>
+      </nav>
+    </header>
+
+    
+    <div id="mainContainer" ng-view=""></div>
+
+    <div class="footer">
+      <div class="container">
+        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      </div>
+    </div>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
        (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
        }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
        ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');</script> <script src="scripts/vendor.16e07da1.js"></script> <script src="scripts/app.min.785f2ca4.js"></script>  
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.2/angular.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.2/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.2/angular-aria.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.2/angular-cookies.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.2/angular-messages.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.2/angular-resource.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.2/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.2/angular-sanitize.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.2/angular-touch.min.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <!-- endbower -->
+    <script src="assets/scripts/libs/md5.js"></script>
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/app.min.js -->
+        <!-- MODULES -->
+        <script src="app.module.js"></script>
+        <script src="app.routes.js"></script>
+        <!-- / -->
+
+        <!-- CONTROLLERS -->
+        <script src="controllers/main.ctrl.js"></script>
+        <script src="controllers/movies.ctrl.js"></script>
+        <script src="controllers/genres-list.ctrl.js"></script>
+        <!-- / -->
+
+        <!-- SERVICES -->
+        <script src="services/api.fct.js"></script>
+        <script src="services/utils.fct.js"></script>
+        <!-- / -->
+
+        <!-- DIRECTIVES -->
+        <script src="directives/genres-menu.drct.js"></script>
+        <script src="directives/genres-thumb-list.drct.js"></script>
+        <script src="directives/featured-movie.drct.js"></script>
+        <script src="directives/movie-grid.drct.js"></script>
+        <script src="directives/map-font-size.drct.js"></script>
+        <!-- / -->
+
+        <!-- endbuild -->
+</body>
+</html>
