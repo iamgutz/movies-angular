@@ -24,7 +24,6 @@
     <header class="container-fluid">
       <nav class="row" role="navigation">
         <div class="navbar-header col-sm-3 col-md-3 col-lg-3">
-
             <div class="row">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -35,9 +34,20 @@
 
               <a class="navbar-brand col-xs-4 col-sm-12" href="#/"><img src="assets/images/logo.png" alt="movies online"/></a>
             </div>
-
         </div>
-        <div class="collapse navbar-collapse" id="js-navbar-collapse">
+        <div class="collapse navbar-collapse col-sm-9 col-md-9 col-lg-9" id="js-navbar-collapse">
+          <div class="row">
+            <div class="searchBox col-xs-12 col-sm-6 pull-right">
+              <a href="#"><i class="glyphicon glyphicon-search"></i><span>Search</span></a>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-search"></i>
+                </span>
+                <input type="text" class="form-control" placeholder="Titles, people, genres" /></div>
+            </div>
+            
+            <span class="col-xs-12 col-sm-6">Browse</span>
+          </div>
           <genres-menu class="nav navbar-nav hidden-sm hidden-md hidden-lg"></genres-menu>
         </div>
       </nav>

@@ -44,3 +44,9 @@ header {
 		}
 	}
 }
+
+.navbar-collapse {
+	@media(min-width: $bootstrapSM) {
+		width: 75%;
+	}
+}
