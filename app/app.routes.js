@@ -17,6 +17,10 @@ app.config(function ($routeProvider) {
       templateUrl: 'views/movies.html',
       controller: 'MoviesCtrl'
     })
+    .when('/search/:query', {
+      templateUrl: 'views/search.html',
+      controller: 'SearchCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });

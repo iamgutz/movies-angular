@@ -12,7 +12,7 @@ app.directive('genresThumbList', function(){
         restrict: 'E',
         transclude: true,
         replace: true,
-        templateUrl: 'directives/genres-thumb-list.html',
+        templateUrl: 'views/directives/genres-thumb-list.html',
         controller: 'GenresListCtrl'
     };
 });

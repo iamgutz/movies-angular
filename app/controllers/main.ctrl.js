@@ -7,8 +7,15 @@
  * # MainCtrl
  * Controller of the moviesApp
  */
-app.controller('MainCtrl', ['$scope', '$rootScope', 'localStorageService', 'apiService', 'utilsService', '$window', function ($scope, $rootScope, localStorageService, apiService, utilsService, $window) {
-
+app.controller('MainCtrl', ['$scope', '$rootScope', '$window', 'mainService', 'apiService', 'utilsService', function ($scope, $rootScope, $window, mainService, apiService, utilsService) {
+	
+	// detect when the url path changes
+	$scope.$on('$routeChangeSuccess', function(){
+		// Store Current Page
+		mainService.saveCurrentPage();
+		console.log(mainService.getCurrentPage());
+	});
+	
 	// API CONFIGURATION
 	apiService.storeApiConfigData();
 	// GENRES LIST

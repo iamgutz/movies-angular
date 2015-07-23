@@ -12,7 +12,7 @@ app.directive('genresMenu', function(){
         restrict: 'E',
         transclude: true,
         replace: true,
-        templateUrl: 'directives/genres-menu.html',
+        templateUrl: 'views/directives/genres-menu.html',
         controller: 'GenresListCtrl'
     };
 });

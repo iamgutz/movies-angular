@@ -49,7 +49,7 @@ app.directive('featuredMovie', function(){
 	      	backdropSize: '@backdropSize',
 	      	genreId: '@genreId'
 	    },
-        templateUrl: 'directives/featured-movie.html',
+        templateUrl: 'views/directives/featured-movie.html',
         controller: ['$scope', '$routeParams', 'apiService', directiveCtrl]
     };
 });

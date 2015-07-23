@@ -8,7 +8,7 @@
  * Factory of the moviesApp
  */
 
- app.factory('utilsService', ['$http', '$q', '$rootScope', 'localStorageService', function ($http, $q, $rootScope, localStorageService){
+ app.factory('utilsService', function (){
  	
  
  	function groupArray (params) {
@@ -29,4 +29,4 @@
 	return {
 		groupArray: groupArray
 	}
- }]);
+ });

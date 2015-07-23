@@ -16,7 +16,8 @@
 	    	configuration: '/configuration',
 		    genre_movie_list: '/genre/movie/list',
 		    genre_id_movies: '/genre/{id}/movies',
-		    discover_movies: '/discover/movie'
+		    discover_movies: '/discover/movie',
+		    search_multi: '/search/multi'
 	    }
 	}
 
@@ -230,6 +231,30 @@
  		return deferred.promise;
  	}
 
+ 	/**
+	 * @function searchMulti
+	 * @type {public}
+	 * @description
+	 * Search for everything 
+	 * @return {function} [Returns a promise]
+	 */
+	function searchMulti (string){
+		var encodedString = encodeURI(string);
+
+		var request = $http({
+			method: 'get',
+			url: api.base_url + api.path.search_multi,
+			params: {
+				query: encodedString,
+				api_key: api.api_key
+			}
+		});
+
+		var promise = request.then(handleSuccess, handleError);
+
+		return promise;
+	}
+
 	// Return public
 	return {
 		getGenresList: getGenresList,
@@ -238,6 +263,7 @@
 		getApiConfig: getApiConfig,
 		getGenreData: getGenreData,
 		storeApiConfigData: storeApiConfigData,
-		storeGenresData: storeGenresData
+		storeGenresData: storeGenresData,
+		searchMulti: searchMulti
 	}
  }]);

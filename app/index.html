@@ -37,15 +37,8 @@
         </div>
         <div class="collapse navbar-collapse col-sm-9 col-md-9 col-lg-9" id="js-navbar-collapse">
           <div class="row">
-            <div class="searchBox col-xs-12 col-sm-6 pull-right">
-              <a href="#"><i class="glyphicon glyphicon-search"></i><span>Search</span></a>
-              <div class="input-group">
-                <span class="input-group-addon">
-                  <i class="glyphicon glyphicon-search"></i>
-                </span>
-                <input type="text" class="form-control" placeholder="Titles, people, genres" /></div>
-            </div>
-            
+            <search-box></search-box>
+  
             <span class="col-xs-12 col-sm-6">Browse</span>
           </div>
           <genres-menu class="nav navbar-nav hidden-sm hidden-md hidden-lg"></genres-menu>
@@ -101,11 +94,13 @@
         <!-- CONTROLLERS -->
         <script src="controllers/main.ctrl.js"></script>
         <script src="controllers/movies.ctrl.js"></script>
+        <script src="controllers/search.ctrl.js"></script>
         <script src="controllers/genres-list.ctrl.js"></script>
         <!-- / -->
 
         <!-- SERVICES -->
         <script src="services/api.fct.js"></script>
+        <script src="services/main.fct.js"></script>
         <script src="services/utils.fct.js"></script>
         <!-- / -->
 
@@ -115,6 +110,7 @@
         <script src="directives/featured-movie.drct.js"></script>
         <script src="directives/movie-grid.drct.js"></script>
         <script src="directives/map-font-size.drct.js"></script>
+        <script src="directives/search-box.drct.js"></script>
         <!-- / -->
 
         <!-- endbuild -->
