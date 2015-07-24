@@ -1,4 +1,42 @@
 <div class="container-fluid">
 	<h1>Search</h1>
-	
+
+	<!-- Persons List -->
+	<div class="row" ng-if="categories.person">
+		<div class="col-xs-2">
+			People:
+		</div>
+		<div class="col-xs-10">
+			<ul class="list-inline">
+				<li ng-repeat="person in categories.person">
+					<a href="/#/search/{{query}}/person/{{person.id}}" ng-class="{'text-muted':person.id == params.person_id}">{{person.name}}</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /Persons List -->
+
+	<div class="row" ng-if="person">
+		<div class="col-xs-2 col-sm-1" ng-if="person.profile_path">
+			<img class="img-fit" src="{{images_base_url}}w185{{person.profile_path}}" alt="{{person.name}}" />
+		</div>
+		<div class="col-xs-10 col-sm-5">
+			<h1>{{person.name}} <small ng-if="person.lifetime">({{person.lifetime}})</small></h1>
+			<p ng-if="person.biography">{{person.biography}}</p>
+		</div>
+	</div>
+
+	<div class="row" ng-if="person_cast.movie">
+		<div class="col-xs-12">
+			<h2>Movies</h2>
+		</div>
+		<div ng-repeat="movie in person_cast.movie" class="movie-box col-xs-4 col-sm-3 col-md-2 col-lg-2">
+			<div class="row">
+				<div class="col-xs-12">
+					<img src="{{images_base_url}}w154{{movie.poster_path}}" class="img-fit" alt="" />
+				</div>
+			</div>
+		</div>
+	</div>
+
 </div>

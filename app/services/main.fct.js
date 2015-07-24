@@ -29,7 +29,10 @@
  	}
 
  	function savePreviousPage(path) {
- 		localStorageService.add('previousPage', path);
+ 		var regExp = /search/g
+ 		var savePath = (regExp.test(path)) ? '/' : path;
+ 		console.log('saving previous page: ', savePath);
+ 		localStorageService.add('previousPage', savePath);
  	}
 
 	// Return public

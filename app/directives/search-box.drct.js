@@ -12,17 +12,18 @@ app.directive('searchBox', function (){
 	var lastSearch;
 	var previousPage; 
 
-	function directiveCtrl ($scope, $routeParams, $window, $location, apiService, utilsService){
-		previousPage = $location.path();
+	function directiveCtrl ($scope, $routeParams, $window, $location, mainService, apiService, utilsService){
 		
 		$scope.search = function() {
 			if($scope.searchInput !== lastSearch) {
 				if($scope.searchInput === '') {
-					console.log('go back');
+					// get previous page stored in session
+					previousPage = mainService.getPreviousPage();
 					$location.path(previousPage);
 				} else {
+					// change the current URL with the values in the input
+					// The search request will be done by the search view controller
 					lastSearch = $scope.searchInput;
-					console.log('searching', lastSearch);
 					$location.path('/search/'+$scope.searchInput);
 				}
 			} 
@@ -35,6 +36,6 @@ app.directive('searchBox', function (){
 		restrict: 'E',
 		replace: true,
 		templateUrl: 'views/directives/search-box.html',
-		controller: ['$scope', '$routeParams', '$window', '$location', 'apiService', 'utilsService', directiveCtrl]
+		controller: ['$scope', '$routeParams', '$window', '$location', 'mainService', 'apiService', 'utilsService', directiveCtrl]
 	}
 });

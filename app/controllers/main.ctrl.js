@@ -13,7 +13,7 @@ app.controller('MainCtrl', ['$scope', '$rootScope', '$window', 'mainService', 'a
 	$scope.$on('$routeChangeSuccess', function(){
 		// Store Current Page
 		mainService.saveCurrentPage();
-		console.log(mainService.getCurrentPage());
+		console.log('current page: ', mainService.getCurrentPage());
 	});
 	
 	// API CONFIGURATION

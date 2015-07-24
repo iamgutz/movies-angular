@@ -1,8 +1,61 @@
 body {
 	background-color: #181818;
+	color: $gray-light;
+	-webkit-font-smoothing: antialiased;
+}
+h1,h2,h3,h4,h5,h6 {
+	color: $white;
+	margin-top: 0;
+	font-weight: normal;
 }
 h1 {
 	font-size: 100%;
+	@media(min-width: $bootstrapSM) {
+		font-size: 50%;
+	}
+}
+h2 {
+	font-size: 90%;
+	@media(min-width: $bootstrapSM) {
+		font-size: 45%;
+	}
+}
+h3 {
+	font-size: 80%;
+	@media(min-width: $bootstrapSM) {
+		font-size: 40%;
+	}
+}
+h4 {
+	font-size: 70%;
+	@media(min-width: $bootstrapSM) {
+		font-size: 35%;
+	}
+}
+h5 {
+	font-size: 60%;
+	@media(min-width: $bootstrapSM) {
+		font-size: 30%;
+	}
+}
+h6 {
+	font-size: 50%;
+	@media(min-width: $bootstrapSM) {
+		font-size: 25%;
+	}
+}
+p, ul li {
+	font-size: 50%;
+	color: $gray-light;
+	@media(min-width: $bootstrapSM) {
+		font-size: 25%;
+	}
+}
+a {
+	color: $white;
+	&:hover {
+		color: $brand-yellow;
+	}
 }
 
 header {
@@ -49,4 +102,9 @@ header {
 	@media(min-width: $bootstrapSM) {
 		width: 75%;
 	}
+}
+
+.img-fit {
+	display: block;
+	width: 100%;
 }

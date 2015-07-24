@@ -17,7 +17,7 @@ app.config(function ($routeProvider) {
       templateUrl: 'views/movies.html',
       controller: 'MoviesCtrl'
     })
-    .when('/search/:query', {
+    .when('/search/:query/:person?/:person_id?', {
       templateUrl: 'views/search.html',
       controller: 'SearchCtrl'
     })

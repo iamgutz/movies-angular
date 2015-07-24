@@ -17,7 +17,9 @@
 		    genre_movie_list: '/genre/movie/list',
 		    genre_id_movies: '/genre/{id}/movies',
 		    discover_movies: '/discover/movie',
-		    search_multi: '/search/multi'
+		    search_multi: '/search/multi',
+		    person_id: '/person/{id}',
+		    person_credits: '/person/{id}/combined_credits'
 	    }
 	}
 
@@ -232,6 +234,53 @@
  	}
 
  	/**
+	 * @function getPersonInformation
+	 * @type {public}
+	 * @description
+	 * Requests biography of specific actor / person
+	 * @return {function} [Returns a promise]
+	 */
+	function getPersonInformation (person_id){
+		var api_path = api.path.person_id.replace('{id}', person_id);
+
+		var request = $http({
+			method: 'get',
+			url: api.base_url + api_path,
+			params: {
+				api_key: api.api_key
+			}
+		});
+
+		var promise = request.then(handleSuccess, handleError);
+
+		return promise;
+	}
+
+	/**
+	 * @function getPersonCredits
+	 * @type {public}
+	 * @description
+	 * Requests movies / tv shows of specific actor / person
+	 * @return {function} [Returns a promise]
+	 */
+	function getPersonCredits (person_id){
+		var api_path = api.path.person_credits.replace('{id}', person_id);
+
+		var request = $http({
+			method: 'get',
+			cache: true,
+			url: api.base_url + api_path,
+			params: {
+				api_key: api.api_key
+			}
+		});
+
+		var promise = request.then(handleSuccess, handleError);
+
+		return promise;
+	}
+
+ 	/**
 	 * @function searchMulti
 	 * @type {public}
 	 * @description
@@ -262,6 +311,8 @@
 		getGenreMoviesList: getGenreMoviesList,
 		getApiConfig: getApiConfig,
 		getGenreData: getGenreData,
+		getPersonCredits: getPersonCredits,
+		getPersonInformation: getPersonInformation,
 		storeApiConfigData: storeApiConfigData,
 		storeGenresData: storeGenresData,
 		searchMulti: searchMulti
