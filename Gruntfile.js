@@ -254,7 +254,10 @@ module.exports = function (grunt) {
         flow: {
           html: {
             steps: {
-              js: ['concat'],
+              js: [
+                'concat', 
+                //'uglifyjs'
+                ],
               css: ['cssmin']
             },
             post: {}
@@ -377,7 +380,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            '{,*/}*.html',
+            '**/**/*.html',
             'assets/images/{,*/}*.{webp}',
             'assets/styles/fonts/{,*/}*.*'
           ]
