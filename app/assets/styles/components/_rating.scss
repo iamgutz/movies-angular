@@ -1,0 +1,15 @@
+.rating {
+	position: relative;
+	.stars-rated,
+	.stars-placeholder {
+		white-space: nowrap;
+	}
+	.stars-rated {
+		position: absolute;
+		top: 0;
+		left: 0;
+		color: $brand-yellow;
+		overflow: hidden;
+		z-index: 1;
+	}
+}

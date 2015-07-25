@@ -10,7 +10,10 @@
 
  app.factory('utilsService', function (){
  	
- 
+ 	/**
+ 	 * @params.array
+ 	 * @params.num
+ 	 */
  	function groupArray (params) {
  		var newArray = [];
  		var newGroup = [];

@@ -22,7 +22,11 @@ app.controller('SearchCtrl', ['$scope', '$routeParams', 'apiService', 'utilsServ
     apiService.storeApiConfigData().then(function (apiConfig){
         $scope.images_base_url = apiConfig.images.base_url;
     });
-	
+
+
+	/**
+     * Get Search Results
+     */
 	apiService.searchMulti(params.query).then(function (data){
         var results = data.results;
         $scope.query = encodeURI(params.query);
@@ -40,6 +44,10 @@ app.controller('SearchCtrl', ['$scope', '$routeParams', 'apiService', 'utilsServ
         console.log('categorized results: ', $scope.categories);
     });
 
+
+	/**
+     * Get Actor / Person information if the params person and person_id are present
+     */
     if(params.person_id){
     	apiService.getPersonInformation(params.person_id).then(function (data){
     		console.log('person info: ', data);

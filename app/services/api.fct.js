@@ -17,6 +17,7 @@
 		    genre_movie_list: '/genre/movie/list',
 		    genre_id_movies: '/genre/{id}/movies',
 		    discover_movies: '/discover/movie',
+		    movie_id: '/movie/{id}',
 		    search_multi: '/search/multi',
 		    person_id: '/person/{id}',
 		    person_credits: '/person/{id}/combined_credits'
@@ -234,6 +235,29 @@
  	}
 
  	/**
+	 * @function getMovieInformation
+	 * @type {public}
+	 * @description
+	 * Requests data of specific movie by id
+	 * @return {function} [Returns a promise]
+	 */
+	function getMovieInformation (movie_id){
+		var api_path = api.path.movie_id.replace('{id}', movie_id);
+
+		var request = $http({
+			method: 'get',
+			url: api.base_url + api_path,
+			params: {
+				api_key: api.api_key
+			}
+		});
+
+		var promise = request.then(handleSuccess, handleError);
+
+		return promise;
+	}
+
+ 	/**
 	 * @function getPersonInformation
 	 * @type {public}
 	 * @description
@@ -311,6 +335,7 @@
 		getGenreMoviesList: getGenreMoviesList,
 		getApiConfig: getApiConfig,
 		getGenreData: getGenreData,
+		getMovieInformation: getMovieInformation,
 		getPersonCredits: getPersonCredits,
 		getPersonInformation: getPersonInformation,
 		storeApiConfigData: storeApiConfigData,

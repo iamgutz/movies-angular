@@ -1,0 +1,9 @@
+.title-card {
+	margin-bottom: 20%;
+	height: 40vw;
+	cursor: pointer;
+	@media(min-width: $bootstrapSM) {
+		margin-bottom: 0.5em;
+		height: 4.4em;
+	}
+}

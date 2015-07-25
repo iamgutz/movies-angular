@@ -20,7 +20,7 @@
 		<div class="col-xs-2 col-sm-1" ng-if="person.profile_path">
 			<img class="img-fit" src="{{images_base_url}}w185{{person.profile_path}}" alt="{{person.name}}" />
 		</div>
-		<div class="col-xs-10 col-sm-5">
+		<div class="col-xs-10 col-sm-8">
 			<h1>{{person.name}} <small ng-if="person.lifetime">({{person.lifetime}})</small></h1>
 			<p ng-if="person.biography">{{person.biography}}</p>
 		</div>
@@ -30,13 +30,14 @@
 		<div class="col-xs-12">
 			<h2>Movies</h2>
 		</div>
-		<div ng-repeat="movie in person_cast.movie" class="movie-box col-xs-4 col-sm-3 col-md-2 col-lg-2">
-			<div class="row">
-				<div class="col-xs-12">
-					<img src="{{images_base_url}}w154{{movie.poster_path}}" class="img-fit" alt="" />
-				</div>
+		<div ng-if="movie.poster_path" ng-repeat="movie in person_cast.movie" class="col-xs-4 col-sm-2">
+			<div class="title-card" ng-click="titleModal(movie.id)" data-toggle="modal" data-target="#titleModal">
+				<img src="{{images_base_url}}w154{{movie.poster_path}}" class="img-fit" alt="" />
 			</div>
 		</div>
 	</div>
+
+
+	<title-modal></title-modal>
 
 </div>
