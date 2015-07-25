@@ -79,7 +79,7 @@
 
 		if(!storedData) {
 			// No data in Local Storage, request to factory service.
-			apiService.getApiConfig().then(function (data) {
+		getApiConfig().then(function (data) {
 				localStorageService.add('apiConfig', data);
 				deferred.resolve(data);
 
@@ -103,7 +103,7 @@
 
 		if(!storedData) {
 			// No data in Local Storage, request to factory service.
-			apiService.getGenresList().then(function (data) {
+			getGenresList().then(function (data) {
 				localStorageService.add('movieGenres', data.genres);
 				deferred.resolve(data.genres);
 
